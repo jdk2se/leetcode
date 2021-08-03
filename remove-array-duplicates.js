@@ -16,6 +16,29 @@ function removeDuplicates(nums) {
   return nums.splice(0, nums.length, ...new Set(nums))
 }
 
-console.log([...new Set(arr2)]);
-console.log(removeDuplicates(arr));
 console.log(removeDuplicates(arr2));
+// -- Set
+const array = ['Alex', 'Jane', 'Mark', 'Jane', 'Melisa', 'Jane'];
+const uniqueArraySet1 = [...new Set(array)];
+const uniqueArraySet2 = Array.from(new Set(array));
+// -- -- -- --
+
+// -- Filter
+let debug = [];
+
+const uniqueFilter = array.filter((item, index) => {
+  debug.push({item, index, indexOf: array.indexOf(item)})
+  return index === array.indexOf(item);
+});
+
+console.table(debug);
+// -- -- -- --
+
+// -- Reduce
+const uniqueReduce = array.reduce((unique, item) => {
+  return unique.includes(item) ? unique : [...unique, item];
+}, []);
+
+console.log(uniqueReduce);
+// -- -- -- --
+
