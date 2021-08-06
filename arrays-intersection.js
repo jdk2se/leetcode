@@ -7,6 +7,7 @@ const arr4 = [9,4,9,8,4];
 // [4,9] || [9,4]
 
 // use hash map
+// O(n+m)
 const intersect = (nums1, nums2) => {
     const result = [];
 
@@ -15,7 +16,13 @@ const intersect = (nums1, nums2) => {
         return acc;
     }, {});
 
-    // todo 
+    
+    for (let j = 0; j < nums2.length; j++) {        
+        if (nums2[j] in map && map[nums2[j]] !== 0) {
+            result.push(nums2[j]);
+            map[nums2[j]] -= 1;
+        }
+    }
 
     return result;
 }
