@@ -11,7 +11,7 @@
     let mid;
   
     while (left <= right) {
-      mid = Math.round((right - left) / 2 + left);    
+      mid = Math.round((left + right) / 2);    
       if (target === nums[mid]) {
         return mid;
       }
@@ -25,3 +25,5 @@
   
     return nums[mid] >= target ? mid : mid + 1;
   };
+
+  console.log(searchInsert([1,2,3,4,5,6], 1));
