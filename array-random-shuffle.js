@@ -12,4 +12,16 @@ const shuffle = (arr) => {
     return res;
 }
 
-console.log(shuffle(input));
+//replace In place O(n)
+const coolShuffle = (arr) => {
+    for (let i = arr.length - 1; i >0; i--) {
+        let rnd = Math.floor(Math.random() * i + 1);
+
+        [arr[i], arr[rnd]] = [arr[rnd], arr[i]];
+    }
+
+    return arr;
+};
+
+// console.log(shuffle(input));
+console.log(coolShuffle(input));
